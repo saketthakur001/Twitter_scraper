@@ -15,6 +15,7 @@ import csv
 import re
 
 
+
 # Your existing setup
 options = webdriver.EdgeOptions()
 options.add_argument("--user-data-dir=/tmp/edgeprofile")
