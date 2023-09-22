@@ -1,0 +1,98 @@
+[
+    {
+        "search_link": "https://twitter.com/search?q=%23tataaigfraud&src=typed_query&f=top",
+        "user_name": "Rohit Vijayvargiya",
+        "user_handle": "/RohitVijayDubbi",
+        "tweet_date": "Jul 7, 2020",
+        "timestamp": "2020-07-07T15:55:12.000Z",
+        "tweet_content": "     you have not protect NCB when you issue policy you misguide customers..false reporting you deceived the customers..when they choose other insurance companies \n  #TataAIGfraud  \n #TataaigNCB \n #TataAIGCheatcustomer \n #deprivebyfraud",
+        "replies": "1",
+        "retweets": "",
+        "likes": "",
+        "app": "TATA"
+    },
+    {
+        "search_link": "https://twitter.com/search?q=%23tataaigfraud&src=typed_query&f=top",
+        "user_name": "Shrey Trivedi",
+        "user_handle": "/ShreytTrivedi",
+        "tweet_date": "Aug 22, 2020",
+        "timestamp": "2020-08-22T08:50:51.000Z",
+        "tweet_content": "     at one side you show humanity, soft corner for country and countrymen and on other side you loot them mentally harassing them three cheers for fraud , cheater modern looters of India       #tataaigfraud",
+        "replies": "",
+        "retweets": "",
+        "likes": "",
+        "app": "TATA"
+    },
+    {
+        "search_link": "https://twitter.com/search?q=%23tataaigfraud&src=typed_query&f=top",
+        "user_name": "Kaustubh Agrawal",
+        "user_handle": "/Kaustubh_ag",
+        "tweet_date": "Aug 12, 2022",
+        "timestamp": "2022-08-12T06:29:10.000Z",
+        "tweet_content": "#tataaigfraud    #tataaigcheating   #tataaigloot   #tataaigscam",
+        "replies": "",
+        "retweets": "",
+        "likes": "",
+        "app": "TATA"
+    },
+    {
+        "search_link": "https://twitter.com/search?q=%23tataaigfraud&src=typed_query&f=top",
+        "user_name": "Debashis Sarkar",
+        "user_handle": "/Debashi70566284",
+        "tweet_date": "Aug 27, 2021",
+        "timestamp": "2021-08-27T08:34:15.000Z",
+        "tweet_content": "are u a fraud? just looting public. 12 months gone but no claim settlement.   #tataaigfraud",
+        "replies": "",
+        "retweets": "",
+        "likes": "",
+        "app": "TATA"
+    },
+    {
+        "search_link": "https://twitter.com/search?q=%23tataaigfraud&src=typed_query&f=top",
+        "user_name": "Shrey Trivedi",
+        "user_handle": "/ShreytTrivedi",
+        "tweet_date": "Aug 22, 2020",
+        "timestamp": "2020-08-22T08:57:56.000Z",
+        "tweet_content": " looter Insurance Company Of India   cheatear,  doing mental harassment to me since last 4 days   substandard inadequate company of India   #tataaigfraud    #tataaigcheats   #tataaiguseless",
+        "replies": "",
+        "retweets": "",
+        "likes": "",
+        "app": "TATA"
+    },
+    {
+        "search_link": "https://twitter.com/search?q=%23tataaigfraud&src=typed_query&f=top",
+        "user_name": "nubivago",
+        "user_handle": "/nubivago3",
+        "tweet_date": "Sep 10, 2020",
+        "timestamp": "2020-09-10T10:06:40.000Z",
+        "tweet_content": "#shameonyoutataaig    #tataaigfraud",
+        "replies": "",
+        "retweets": "1",
+        "likes": "1",
+        "app": "TATA"
+    },
+    {
+        "search_link": "https://twitter.com/search?q=%23tataaigfraud&src=typed_query&f=top",
+        "user_name": "Pawan Kotwani",
+        "user_handle": "/Pawan_kotwani",
+        "tweet_date": "May 7, 2022",
+        "timestamp": "2022-05-07T07:43:09.000Z",
+        "tweet_content": "I have never seen  #fraud  company like     #tataaigfraud   and i have raised request for remimbursement claim and and its been 3-4 days but there is no update for claim and its still in process.",
+        "replies": "",
+        "retweets": "",
+        "likes": "",
+        "app": "TATA"
+    },
+    {
+        "search_link": "https://twitter.com/search?q=%23tataaigfraud&src=typed_query&f=top",
+        "user_name": "CM",
+        "user_handle": "/ikommonman",
+        "tweet_date": "Dec 23, 2021",
+        "timestamp": "2021-12-23T05:00:42.000Z",
+        "tweet_content": " initiated a motor claim in hyd,assigned a surveyor he was not approoving for the damages happened in accident,giving half Approovels , very worest experience i had, jindly avoid   insurance gor ur cars  #woresttataaig    #tataaigfraud    #motorclaim",
+        "replies": "1",
+        "retweets": "",
+        "likes": "",
+        "app": "TATA"
+    }
+]

@@ -22,7 +22,6 @@ options.add_argument("--user-data-dir=/tmp/edgeprofile")
 driver = webdriver.Edge(options=options)
 
 
-
 def human_like_scroll(driver, scroll_distance=50, iterations=100):
     """Simulate a human-like scrolling behavior."""
     for _ in range(iterations):
