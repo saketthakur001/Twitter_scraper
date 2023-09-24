@@ -216,8 +216,8 @@ def get_org_comments_for_the_hashtag(hashtag, app_name):
 # org = "Aditya Birla"
 
 # Hashes_search = "
-technology =  "Debit Card / Credit Card"
-hashtag = ""
+technology =  "Net Banking"
+hashtag = "#digitalbanking"
 get_org_comments_for_the_hashtag(hashtag, technology)
 
 # # try:
@@ -282,3 +282,4 @@ get_org_comments_for_the_hashtag(hashtag, technology)
 # Others
 #
 # cashless, cashlessindia, digitalindia, digitalbharat, payments, paymentgateway, cybercribe, bankingfraud, paymentfraud, paymentsuccess, onlinepayment, onlinepayments, digitalpayment, digitalpayments, digipay, moneytransfer, remittance, remit, cashdeposit, cashwithdrawal, cashwithdraw, paymenttransaction
+Blueprint a ship with a graphene-titanium hull and ornate patterns. Include retractable solar sail wings, dual chemical-ion thrusters, and bird-like landing pods. Da Vinci's Vitruvian Man inspires the cockpit layout.
