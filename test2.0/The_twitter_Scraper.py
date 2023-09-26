@@ -13,6 +13,31 @@ import csv
 
 # get data with pattern
 import re
+# import payment_methods
+import pygame
+import numpy as np
+from math import pi, sin
+
+# Initialize Pygame's audio mixer for stereo output
+pygame.mixer.init(frequency=44100, size=-16, channels=2)
+
+# Parameters
+duration = 1.0  # seconds
+frequency = 440.0  # Hz
+sampling_rate = 44100  # Hz
+
+# Generate numpy array
+t = np.linspace(0, duration, int(sampling_rate * duration), False)
+sound_data = 0.5 * np.sin(frequency * 2 * pi * t)  # Sine wave
+
+# Normalize the data
+sound_data = (sound_data * 32767 / np.max(np.abs(sound_data))).astype(np.int16)
+
+# Reshape to make it 2D
+sound_data = np.tile(sound_data[:, np.newaxis], [1, 2])
+
+# Create a sound buffer object
+sound = pygame.sndarray.make_sound(sound_data)
 
 
 
@@ -148,6 +173,14 @@ def twitter_search_v2(hashtags):
     
     return base_url + formatted_hashtags + end_url
 
+def check_if_end_of_page(driver):
+  
+  current_height = driver.execute_script("return document.body.scrollHeight")
+  driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
+  new_height = driver.execute_script("return document.body.scrollHeight")
+
+  return current_height == new_height
+
 def get_org_comments_for_the_hashtag(hashtag, app_name):
     # searchLink = twitter_search(hashtag)
     # searchLink = "https://twitter.com/search?q=%23upipin&src=typed_query"
@@ -158,11 +191,19 @@ def get_org_comments_for_the_hashtag(hashtag, app_name):
     all_comments_content = []
     # all_comments_content_no_dublicates = set()
     fields = ['search_link', 'user_name', 'user_handle', 'tweet_date', 'timestamp', 'tweet_content', 'replies', 'retweets', 'likes', 'app']
-
     # last_height = driver.execute_script("return document.body.scrollHeight")
     # ran = random.uniform(1, 2)
     ran = 1328123918231
-    with open(f'twitter_comments_csv{hashtag} from {technology}.csv','a', newline='', encoding='utf-8') as csvfile:
+
+    # construct the filename
+    filename = f'twitter_comments_csv{hashtag} from {app_name}.csv'
+
+    # check if file exists
+    file_exists = os.path.exists(filename)
+    
+    if file_exists:return False
+
+    with open(f'twitter_comments_csv{hashtag} from {app_name}.csv','a', newline='', encoding='utf-8') as csvfile:
         csvWriter = csv.DictWriter(csvfile, fieldnames=fields)
         csvWriter.writeheader()
         while True:
@@ -191,6 +232,13 @@ def get_org_comments_for_the_hashtag(hashtag, app_name):
                         # all_comments_content_no_dublicates.add(comment_detail)
                         all_comments_content.append(comment_detail)
             human_like_scroll(driver)
+            if check_if_end_of_page(driver):
+                time.sleep(60*2)
+                # Play sound
+                sound.play()
+                # Wait for playback to finish
+                pygame.time.wait(int(duration * 1000))
+
 
     # while True:
                     # with open('data-232.txt', 'a', encoding='utf-8') as file:
@@ -215,13 +263,12 @@ def get_org_comments_for_the_hashtag(hashtag, app_name):
 # Hashes_search = "#Adityabirlahealthinsurance"
 # org = "Aditya Birla"
 
-# SaketThaku5099
-# PwM.BhR9-Tkz4CN
 
-# Hashes_search = "
-technology =  "Net Banking"
-hashtag = "#digitalbanking"
-get_org_comments_for_the_hashtag(hashtag, technology)
+# if __name__ == '__main__':
+#     # Hashes_search = "
+#     technology =  "Point of Sale (PoS)"
+#     hashtag = "#retail"
+#     get_org_comments_for_the_hashtag(hashtag, technology)
 
 # # try:
 # Hashes_search = input('Hashes Search:')
@@ -233,56 +280,120 @@ get_org_comments_for_the_hashtag(hashtag, technology)
 #     time.sleep(1000) 
 
 
-#netbanking #internetbanking
-#phonebanking
-#mobilebanking
-#onlinebanking
-#digitalbanking
+# if you want to access data for a specific category, for example 'Debit_Credit_Card'
+# debit_credit_card_hashtags = payment_methods.get("Debit_Credit_Card", [])
 
+# organizing payment types and their associated hashtags into a python dictionary
+payment_methods = {
+    # "Debit_Credit_Card": [
+    #     "card",
+    #     "debitcard",
+    #     "creditcard",
+    #     "cardpayment",
+    #     "cardpayments",
+    #     "atm",
+    #     "atmcard",
+    #     "atmcards",
+    # ],
+    # "Point_of_Sale": [
+    #     "pos",
+    #     "posmachine",
+    #     "retail"
+    # ],
+    "Contactless": [
+        # "tapandpay",
+        # "taptopay",
+        "tappayment",
+        "contactless",
+        "contactlesspayment",
+        "tapandgo",
+        "contactlesspurchase",
+        "nfc",
+        "contactlesscard"
+    ],
+    "Payment_Wallets": [
+        "paytmwallet",
+        "paymentbank",
+        "wallet",
+        "digitalwallet",
+        "onlinewallet",
+        "mobilewallet",
+        "phonewallet"
+    ],
+    "Cheques": [
+        "chequepayment",
+        "cheque",
+        "chequebounce",
+        "chequefraud"
+    ],
+    "AEPS": [
+        "aeps",
+        "aepsfraud",
+        "aadharpay",
+        "aadharbanking",
+        "aadharbiometric",
+        "biometricpayment",
+        "csc",
+        "aadharenabledpaymentsystem",
+        "cscpayment",
+        "cscfraud",
+        "doorstepbanking",
+        "miniatm"
+    ],
+    "NETC_Fastag": [
+        "fastag",
+        "tolltax",
+        "nhaitoll",
+        "toll",
+        "fastagfraud",
+        "fastagscam",
+        "netcfastag"
+    ],
+    "QR": [
+        "qr",
+        "qrfail",
+        "qrcode",
+        "qrpayment",
+        "qrtransaction",
+        "qrsticker",
+        "qrscan",
+        "qrscam",
+        "scanandpay"
+    ],
+    "Others": [
+        "cashless",
+        "cashlessindia",
+        "digitalindia",
+        "digitalbharat",
+        "payments",
+        "paymentgateway",
+        "cybercribe",
+        "bankingfraud",
+        "paymentfraud",
+        "paymentsuccess",
+        "onlinepayment",
+        "onlinepayments",
+        "digitalpayment",
+        "digitalpayments",
+        "digipay",
+        "moneytransfer",
+        "remittance",
+        "remit",
+        "cashdeposit",
+        "cashwithdrawal",
+        "cashwithdraw",
+        "paymenttransaction"
+    ]
+}
 
-# Technology payment hashtags
-#
-# UPI
-#
-# upi, upitransaction, upitransactions, upipayment, upipayments, upiindia, upipin
-#
-# Net Banking
-#
-# netbanking, internetbanking, phonebanking, mobilebanking, onlinebanking, digitalbanking
-#
-# Debit Card / Credit Card
-#
-# card, debitcard, creditcard, cardpayment, cardpayments, atm, atmcard, atmcards
-#
-# Point of Sale (PoS)
-#
-# pos, posmachine, retail
-#
-# Contactless
-#
-# tapandpay, taptopay, tappayment, contactless, contactlesspayment, tapandgo, contactlesspurchase, nfc, contactlesscard
-#
-# Payment Wallets
-#
-# paytmwallet, paymentbank, wallet, digitalwallet, onlinewallet, mobilewallet, phonewallet
-#
-# Cheques
-#
-# chequepayment, cheque, chequebounce, chequefraud
-#
-# AEPS
-#
-# aeps, aepsfraud, aadharpay, aadharbanking, aadharbiometric, biometricpayment, csc, aadharenabledpaymentsystem, cscpayment, cscfraud, doorstepbanking, miniatm
-#
-# NETC Fastag
-#
-# fastag, tolltax, nhaitoll, toll, fastagfraud, fastagscam, netcfastag
-#
-# QR
-#
-# qr, qrfail, qrcode, qrpayment, qrtransaction, qrsticker, qrscan, qrscam, scanandpay
-#
-# Others
-#
-# cashless, cashlessindia, digitalindia, digitalbharat, payments, paymentgateway, cybercribe, bankingfraud, paymentfraud, paymentsuccess, onlinepayment, onlinepayments, digitalpayment, digitalpayments, digipay, moneytransfer, remittance, remit, cashdeposit, cashwithdrawal, cashwithdraw, paymenttransaction
-# Blueprint a ship with a graphene-titanium hull and ornate patterns. Include retractable solar sail wings, dual chemical-ion thrusters, and bird-like landing pods. Da Vinci's Vitruvian Man inspires the cockpit layout.
+# if you want to access data for a specific category, for example 'Debit_Credit_Card'
+for method in payment_methods:
+    print(method)
+    hashTags = payment_methods[method]
+    for hashtag in hashTags:
+        print(hashtag)
+        technology = method
+        get_org_comments_for_the_hashtag(hashtag, technology)
+
+# if you want to access data for a specific category, for example 'Debit_Credit_Card'
+# debit_credit_card_hashtags = payment_methods.get("Debit_Credit_Card", [])

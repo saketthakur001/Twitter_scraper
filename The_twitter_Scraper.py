@@ -13,6 +13,7 @@ import csv
 
 # get data with pattern
 import re
+# import payment_methods
 
 
 
@@ -158,10 +159,18 @@ def get_org_comments_for_the_hashtag(hashtag, app_name):
     all_comments_content = []
     # all_comments_content_no_dublicates = set()
     fields = ['search_link', 'user_name', 'user_handle', 'tweet_date', 'timestamp', 'tweet_content', 'replies', 'retweets', 'likes', 'app']
-
     # last_height = driver.execute_script("return document.body.scrollHeight")
     # ran = random.uniform(1, 2)
     ran = 1328123918231
+
+    # construct the filename
+    filename = f'twitter_comments_csv{hashtag} from {technology}.csv'
+
+    # check if file exists
+    file_exists = os.path.exists(filename)
+    
+    if file_exists:return False
+
     with open(f'twitter_comments_csv{hashtag} from {technology}.csv','a', newline='', encoding='utf-8') as csvfile:
         csvWriter = csv.DictWriter(csvfile, fieldnames=fields)
         csvWriter.writeheader()
@@ -215,10 +224,12 @@ def get_org_comments_for_the_hashtag(hashtag, app_name):
 # Hashes_search = "#Adityabirlahealthinsurance"
 # org = "Aditya Birla"
 
-# Hashes_search = "
-technology =  "Debit Card / Credit Card"
-hashtag = ""
-get_org_comments_for_the_hashtag(hashtag, technology)
+
+if __name__ == '__main__':
+    # Hashes_search = "
+    technology =  "Point of Sale (PoS)"
+    hashtag = "#retail"
+    get_org_comments_for_the_hashtag(hashtag, technology)
 
 # # try:
 # Hashes_search = input('Hashes Search:')
@@ -230,55 +241,111 @@ get_org_comments_for_the_hashtag(hashtag, technology)
 #     time.sleep(1000) 
 
 
-#netbanking #internetbanking
-#phonebanking
-#mobilebanking
-#onlinebanking
-#digitalbanking
+# if you want to access data for a specific category, for example 'Debit_Credit_Card'
+# debit_credit_card_hashtags = payment_methods.get("Debit_Credit_Card", [])
 
+# organizing payment types and their associated hashtags into a python dictionary
+payment_methods = {
+    "Debit_Credit_Card": [
+        "card",
+        "debitcard",
+        "creditcard",
+        "cardpayment",
+        "cardpayments",
+        "atm",
+        "atmcard",
+        "atmcards",
+    ],
+    "Point_of_Sale": [
+        "pos",
+        "posmachine",
+        "retail"
+    ],
+    "Contactless": [
+        "tapandpay",
+        "taptopay",
+        "tappayment",
+        "contactless",
+        "contactlesspayment",
+        "tapandgo",
+        "contactlesspurchase",
+        "nfc",
+        "contactlesscard"
+    ],
+    "Payment_Wallets": [
+        "paytmwallet",
+        "paymentbank",
+        "wallet",
+        "digitalwallet",
+        "onlinewallet",
+        "mobilewallet",
+        "phonewallet"
+    ],
+    "Cheques": [
+        "chequepayment",
+        "cheque",
+        "chequebounce",
+        "chequefraud"
+    ],
+    "AEPS": [
+        "aeps",
+        "aepsfraud",
+        "aadharpay",
+        "aadharbanking",
+        "aadharbiometric",
+        "biometricpayment",
+        "csc",
+        "aadharenabledpaymentsystem",
+        "cscpayment",
+        "cscfraud",
+        "doorstepbanking",
+        "miniatm"
+    ],
+    "NETC_Fastag": [
+        "fastag",
+        "tolltax",
+        "nhaitoll",
+        "toll",
+        "fastagfraud",
+        "fastagscam",
+        "netcfastag"
+    ],
+    "QR": [
+        "qr",
+        "qrfail",
+        "qrcode",
+        "qrpayment",
+        "qrtransaction",
+        "qrsticker",
+        "qrscan",
+        "qrscam",
+        "scanandpay"
+    ],
+    "Others": [
+        "cashless",
+        "cashlessindia",
+        "digitalindia",
+        "digitalbharat",
+        "payments",
+        "paymentgateway",
+        "cybercribe",
+        "bankingfraud",
+        "paymentfraud",
+        "paymentsuccess",
+        "onlinepayment",
+        "onlinepayments",
+        "digitalpayment",
+        "digitalpayments",
+        "digipay",
+        "moneytransfer",
+        "remittance",
+        "remit",
+        "cashdeposit",
+        "cashwithdrawal",
+        "cashwithdraw",
+        "paymenttransaction"
+    ]
+}
 
-# Technology payment hashtags
-#
-# UPI
-#
-# upi, upitransaction, upitransactions, upipayment, upipayments, upiindia, upipin
-#
-# Net Banking
-#
-# netbanking, internetbanking, phonebanking, mobilebanking, onlinebanking, digitalbanking
-#
-# Debit Card / Credit Card
-#
-# card, debitcard, creditcard, cardpayment, cardpayments, atm, atmcard, atmcards
-#
-# Point of Sale (PoS)
-#
-# pos, posmachine, retail
-#
-# Contactless
-#
-# tapandpay, taptopay, tappayment, contactless, contactlesspayment, tapandgo, contactlesspurchase, nfc, contactlesscard
-#
-# Payment Wallets
-#
-# paytmwallet, paymentbank, wallet, digitalwallet, onlinewallet, mobilewallet, phonewallet
-#
-# Cheques
-#
-# chequepayment, cheque, chequebounce, chequefraud
-#
-# AEPS
-#
-# aeps, aepsfraud, aadharpay, aadharbanking, aadharbiometric, biometricpayment, csc, aadharenabledpaymentsystem, cscpayment, cscfraud, doorstepbanking, miniatm
-#
-# NETC Fastag
-#
-# fastag, tolltax, nhaitoll, toll, fastagfraud, fastagscam, netcfastag
-#
-# QR
-#
-# qr, qrfail, qrcode, qrpayment, qrtransaction, qrsticker, qrscan, qrscam, scanandpay
-#
-# Others
-#
-# cashless, cashlessindia, digitalindia, digitalbharat, payments, paymentgateway, cybercribe, bankingfraud, paymentfraud, paymentsuccess, onlinepayment, onlinepayments, digitalpayment, digitalpayments, digipay, moneytransfer, remittance, remit, cashdeposit, cashwithdrawal, cashwithdraw, paymenttransaction
+# if you want to access data for a specific category, for example 'Debit_Credit_Card'
+# debit_credit_card_hashtags = payment_methods.get("Debit_Credit_Card", [])
