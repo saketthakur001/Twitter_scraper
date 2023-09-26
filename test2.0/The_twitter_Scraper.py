@@ -239,7 +239,7 @@ def get_org_comments_for_the_hashtag(hashtag, app_name):
                 # Wait for playback to finish
                 pygame.time.wait(int(duration * 1000))
 
-
+# [text]("link")
     # while True:
                     # with open('data-232.txt', 'a', encoding='utf-8') as file:
                         # file.write(str(comment_detail) + ',')
