@@ -233,11 +233,21 @@ def get_org_comments_for_the_hashtag(hashtag, app_name):
                         all_comments_content.append(comment_detail)
             human_like_scroll(driver)
             if check_if_end_of_page(driver):
-                time.sleep(60*2)
+                time.sleep(60)
                 # Play sound
                 sound.play()
                 # Wait for playback to finish
-                pygame.time.wait(int(duration * 1000))
+                pygame.time.wait(int(duration * 1000*2))
+                sound.play()
+                # Wait for playback to finish
+                pygame.time.wait(int(duration * 1000*2))
+                                # Play sound
+                # sound.play()
+                # # Wait for playback to finish
+                # pygame.time.wait(int(duration * 1000*2))
+                # sound.play()
+                # # Wait for playback to finish
+                # pygame.time.wait(int(duration * 1000*2))
 
 # [text]("link")
     # while True:
@@ -285,106 +295,24 @@ def get_org_comments_for_the_hashtag(hashtag, app_name):
 
 # organizing payment types and their associated hashtags into a python dictionary
 payment_methods = {
-    # "Debit_Credit_Card": [
-    #     "card",
-    #     "debitcard",
-    #     "creditcard",
-    #     "cardpayment",
-    #     "cardpayments",
-    #     "atm",
-    #     "atmcard",
-    #     "atmcards",
-    # ],
     # "Point_of_Sale": [
     #     "pos",
     #     "posmachine",
     #     "retail"
-    # ],
-    "Contactless": [
-        # "tapandpay",
-        # "taptopay",
-        "tappayment",
-        "contactless",
-        "contactlesspayment",
-        "tapandgo",
-        "contactlesspurchase",
-        "nfc",
-        "contactlesscard"
-    ],
-    "Payment_Wallets": [
-        "paytmwallet",
-        "paymentbank",
-        "wallet",
-        "digitalwallet",
-        "onlinewallet",
-        "mobilewallet",
-        "phonewallet"
-    ],
-    "Cheques": [
-        "chequepayment",
-        "cheque",
-        "chequebounce",
-        "chequefraud"
-    ],
-    "AEPS": [
-        "aeps",
-        "aepsfraud",
-        "aadharpay",
-        "aadharbanking",
-        "aadharbiometric",
-        "biometricpayment",
-        "csc",
-        "aadharenabledpaymentsystem",
-        "cscpayment",
-        "cscfraud",
-        "doorstepbanking",
-        "miniatm"
-    ],
-    "NETC_Fastag": [
-        "fastag",
-        "tolltax",
-        "nhaitoll",
-        "toll",
-        "fastagfraud",
-        "fastagscam",
-        "netcfastag"
-    ],
-    "QR": [
-        "qr",
-        "qrfail",
-        "qrcode",
-        "qrpayment",
-        "qrtransaction",
-        "qrsticker",
-        "qrscan",
-        "qrscam",
-        "scanandpay"
-    ],
-    "Others": [
-        "cashless",
-        "cashlessindia",
-        "digitalindia",
-        "digitalbharat",
-        "payments",
-        "paymentgateway",
-        "cybercribe",
-        "bankingfraud",
-        "paymentfraud",
-        "paymentsuccess",
-        "onlinepayment",
-        "onlinepayments",
-        "digitalpayment",
-        "digitalpayments",
-        "digipay",
-        "moneytransfer",
-        "remittance",
-        "remit",
-        "cashdeposit",
-        "cashwithdrawal",
-        "cashwithdraw",
-        "paymenttransaction"
+    # ]
+    "phonePe":[
+        # "phonepeapp",
+        # "phonepe",
+        # "phonepeloan",
+        # "phonepeupi",
+        "phonepescam"
     ]
 }
+
+
+# SaketThaku5099
+# PwM.BhR9-Tkz4CN
+
 
 # if you want to access data for a specific category, for example 'Debit_Credit_Card'
 for method in payment_methods:
@@ -397,3 +325,4 @@ for method in payment_methods:
 
 # if you want to access data for a specific category, for example 'Debit_Credit_Card'
 # debit_credit_card_hashtags = payment_methods.get("Debit_Credit_Card", [])
+# 
